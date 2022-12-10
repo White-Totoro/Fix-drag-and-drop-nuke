@@ -4,7 +4,7 @@
 #  Author: Alexander Marchenko
 #
 #  Last Modified by: Alexander Marchenko
-#  Last Updated: December 12th, 2022
+#  Last Updated: December 10th, 2022
 # -------------------------------------------------------------
 
 import nuke
