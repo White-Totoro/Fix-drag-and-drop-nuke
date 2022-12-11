@@ -16,33 +16,6 @@ from PySide2.QtGui import *
 
 nuke_app = QApplication.instance()
 
-DAG_OBJECT_NAME = "DAG"
-
-# Group Dags
-
-
-def get_dag_widgets(visible=True):
-    dags = []
-    all_widgets = QApplication.instance().allWidgets()
-    for widget in all_widgets:
-        if DAG_OBJECT_NAME in widget.objectName():
-            if not visible or (visible and widget.isVisible()):
-                dags.append(widget)
-    return dags
-
-
-def get_current_dag():
-
-    visible_dags = get_dag_widgets(visible=True)
-    for dag in visible_dags:
-        if dag.hasFocus():
-            return dag
-
-    # IF None had focus, and we have at least one, use the first one
-    if visible_dags:
-        return visible_dags[0]
-    return None
-
 
 class eventFilterWindowClass(QObject):
     def __init__(self):
