@@ -1,6 +1,6 @@
 # --------------------------------------------------------------
 #  leave_selected_false.py
-#  Version: 1.1.0
+#  Version: 1.2.0
 #  Author: Alexander Marchenko
 #
 #  Last Modified by: Alexander Marchenko
@@ -19,7 +19,7 @@ nuke_app = QApplication.instance()
 
 class eventFilterWindowClass(QObject):
     def __init__(self):
-        super().__init__()
+        super(eventFilterWindowClass, self).__init__()
 
         self.selected_nodes = []
 
@@ -40,6 +40,7 @@ class eventFilterWindowClass(QObject):
                 self.selected_nodes = selected_nodes
                 for n in self.selected_nodes:
                     n.knob('selected').setValue(False)
+
         if ev.type() == QEvent.WindowActivate:
             selected_nodes = nuke.selectedNodes()
             if not selected_nodes:
